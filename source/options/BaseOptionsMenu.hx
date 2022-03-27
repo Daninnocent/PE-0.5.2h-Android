@@ -24,6 +24,7 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
+import flixel.addons.transition.FlxTransitionableState;
 
 using StringTools;
 
@@ -150,7 +151,8 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
 		if (controls.BACK) {
 			#if android
-                        MusicBeatState.resetState();
+                        FlxTransitionableState.skipNextTransOut = true;
+		                   	FlxG.resetState();
                         #else
                         close();
                         #end
